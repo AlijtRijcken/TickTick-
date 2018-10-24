@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Alijt Rijcken/Desktop/Tick Tick - Starting code/TickTickFinal/Content/Sounds/snd_player_fall.wma</SourceFile>
+  <SourceTime>2011-06-14T11:17:48+02:00</SourceTime>
+  <DestFile>C:/Users/Alijt Rijcken/Desktop/Tick Tick - Starting code/TickTickFinal/Content/bin/Windows/Sounds/snd_player_fall.xnb</DestFile>
+  <DestTime>2018-10-24T14:35:47.2543951+02:00</DestTime>
+  <Importer>WmaImporter</Importer>
+  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
