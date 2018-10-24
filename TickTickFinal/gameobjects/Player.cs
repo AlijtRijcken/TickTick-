@@ -11,6 +11,7 @@ partial class Player : AnimatedGameObject
     protected bool exploded;
     protected bool finished;
     protected bool walkingOnIce, walkingOnHot;
+    TinyBomb Tiny;
 
     public Player(Vector2 start) : base(2, "player")
     {
@@ -49,6 +50,10 @@ partial class Player : AnimatedGameObject
         if (!isAlive)
         {
             return;
+        }
+        if (inputHelper.IsKeyDown(Keys.F))
+        {
+            Tiny = new TinyBomb(position);
         }
         if (inputHelper.IsKeyDown(Keys.Left))
         {

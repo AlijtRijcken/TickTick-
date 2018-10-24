@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Alijt Rijcken/Desktop/Tick Tick - Starting code/TickTickFinal/Content/Sprites/spr_button_quit.png</SourceFile>
-  <SourceTime>2012-06-04T17:37:54+02:00</SourceTime>
-  <DestFile>C:/Users/Alijt Rijcken/Desktop/Tick Tick - Starting code/TickTickFinal/Content/bin/Windows/Sprites/spr_button_quit.xnb</DestFile>
-  <DestTime>2018-10-24T14:35:47.9779056+02:00</DestTime>
+  <SourceFile>Z:/Documenten/GitHub/TickTick-/TickTickFinal/Content/Sprites/spr_button_quit.png</SourceFile>
+  <SourceTime>2018-10-24T15:28:37.728565+02:00</SourceTime>
+  <DestFile>Z:/Documenten/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Sprites/spr_button_quit.xnb</DestFile>
+  <DestTime>2018-10-24T15:59:50.8854529+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
