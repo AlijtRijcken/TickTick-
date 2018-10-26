@@ -1,10 +1,12 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 partial class Player : AnimatedGameObject
 {
     protected Vector2 startPosition;
+    private int Direction = 1; //richting waar player naar kijkt, Dit moet worden vervangen met hetgene dat bepaald welkekant de player op kijkt, kon ik niet vinden.
     protected bool isOnTheGround;
     protected float previousYPosition;
     protected bool isAlive;
@@ -53,15 +55,21 @@ partial class Player : AnimatedGameObject
         }
         if (inputHelper.IsKeyDown(Keys.F))
         {
-            Tiny = new TinyBomb(position);
+            Tiny = new TinyBomb();
+            Tiny.direction = Direction;
+            Tiny.Position = position;
+            TileField tiles = GameWorld.Find("tiles") as TileField;
+            Tiny.tiles = tiles;
         }
         if (inputHelper.IsKeyDown(Keys.Left))
         {
             velocity.X = -walkingSpeed;
+            Direction = -1;
         }
         else if (inputHelper.IsKeyDown(Keys.Right))
         {
             velocity.X = walkingSpeed;
+            Direction = 1;
         }
         else if (!walkingOnIce && isOnTheGround)
         {
@@ -76,10 +84,22 @@ partial class Player : AnimatedGameObject
             Jump();
         }
     }
+    public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+    {
+        base.Draw(gameTime, spriteBatch);
+        if (Tiny != null)
+        {
+            Tiny.Draw(gameTime, spriteBatch);
+        }
 
+    }
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+        if (Tiny != null)
+        {
+            Tiny.Update(gameTime);
+        }
         if (!finished && isAlive)
         {
             if (isOnTheGround)
