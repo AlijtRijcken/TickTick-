@@ -17,6 +17,8 @@ public class GameEnvironment : Game
     protected static AssetManager assetManager;
     protected static GameSettingsManager gameSettingsManager;
 
+    public static Camera camera;                                        //CAM
+
     public GameEnvironment()
     {
         graphics = new GraphicsDeviceManager(this);
@@ -27,6 +29,8 @@ public class GameEnvironment : Game
         random = new Random();
         assetManager = new AssetManager(Content);
         gameSettingsManager = new GameSettingsManager();
+        camera = new Camera();                                          //CAM
+
     }
 
     public static Point Screen
@@ -62,6 +66,11 @@ public class GameEnvironment : Game
         {
             ApplyResolutionSettings(value);
         }
+    }
+
+    public static Camera Camera                                     //CAM PROPERTY
+    {
+        get { return Camera; }
     }
 
     public void ApplyResolutionSettings(bool fullScreen = false)
@@ -127,6 +136,7 @@ public class GameEnvironment : Game
     {
         HandleInput();
         gameStateManager.Update(gameTime);
+        camera.Update(gameTime);                                                    //UPDATE CAMERA 
     }
 
     protected override void Draw(GameTime gameTime)
