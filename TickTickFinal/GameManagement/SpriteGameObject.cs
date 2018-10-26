@@ -34,20 +34,23 @@ public class SpriteGameObject : GameObject
         {
             return;
         }
-        
+
+        sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
+
         //ADDED
-        if (cameraFollow == true && parallaxFollow == false)
-        {
-            sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
-        }
-        else if (cameraFollow == false)
-        {
-            sprite.Draw(spriteBatch, this.GlobalPosition, origin);
-        }
-        if (parallaxFollow == true)
-        {
-            sprite.Draw(spriteBatch, new Vector2(this.GlobalPosition.X - camera.Position.X * 0.25f * layer, GlobalPosition.Y - camera.Position.Y), origin);
-        }
+
+        //if (cameraFollow == true && parallaxFollow == false)
+        //{
+        //    sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
+        //}
+        //else if (cameraFollow == false)
+        //{
+        //    sprite.Draw(spriteBatch, this.GlobalPosition, origin);
+        //}
+        //if (parallaxFollow == true)
+        //{
+        //    sprite.Draw(spriteBatch, new Vector2(this.GlobalPosition.X - camera.Position.X * 0.25f * layer, GlobalPosition.Y - camera.Position.Y), origin);
+        //}
     }
 
     public SpriteSheet Sprite

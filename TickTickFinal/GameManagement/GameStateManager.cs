@@ -6,7 +6,7 @@ public class GameStateManager : IGameLoopObject
 {
     Dictionary<string, IGameLoopObject> gameStates;
     IGameLoopObject currentGameState;
-
+    public static bool followtheplayer;
     public GameStateManager()
     {
         gameStates = new Dictionary<string, IGameLoopObject>();
@@ -53,6 +53,7 @@ public class GameStateManager : IGameLoopObject
 
     public void Update(GameTime gameTime)
     {
+        
         if (currentGameState != null)
         {
             currentGameState.Update(gameTime);

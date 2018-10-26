@@ -16,7 +16,7 @@ partial class Level : GameObjectList
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-
+        
         TimerGameObject timer = Find("timer") as TimerGameObject;
         Player player = Find("player") as Player;
 

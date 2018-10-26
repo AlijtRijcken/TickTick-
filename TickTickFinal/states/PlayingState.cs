@@ -49,6 +49,7 @@ class PlayingState : IGameLoopObject
 
     public virtual void Update(GameTime gameTime)
     {
+        
         CurrentLevel.Update(gameTime);
         if (CurrentLevel.GameOver)
         {

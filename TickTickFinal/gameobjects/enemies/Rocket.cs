@@ -52,6 +52,7 @@ class Rocket : AnimatedGameObject
         {
             if (player.Position.Y <= position.Y - 0.6f * player.Sprite.Height)
             {
+                player.Jump();
                 Reset();
             }
             else

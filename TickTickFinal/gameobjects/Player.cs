@@ -95,6 +95,8 @@ partial class Player : AnimatedGameObject
     }
     public override void Update(GameTime gameTime)
     {
+        GameEnvironment.cameraPosition = position;
+        
         base.Update(gameTime);
         if (Tiny != null)
         {

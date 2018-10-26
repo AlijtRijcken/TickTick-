@@ -53,6 +53,7 @@ class LevelMenuState : GameObjectList
         if (LevelSelected != -1)
         {
             PlayingState playingState = GameEnvironment.GameStateManager.GetGameState("playingState") as PlayingState;
+            //je weet het level, camera player volgen 
             playingState.CurrentLevelIndex = LevelSelected - 1;
             GameEnvironment.GameStateManager.SwitchTo("playingState");
         }

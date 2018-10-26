@@ -18,11 +18,14 @@ public class GameEnvironment : Game
     protected static GameSettingsManager gameSettingsManager;
 
     public static Camera camera;                                        //CAM
+    public static Vector2 cameraPosition = new Vector2(0,0);
+    public static Vector2 windowsize;
+    public static bool followplayer = false;
 
     public GameEnvironment()
     {
         graphics = new GraphicsDeviceManager(this);
-
+        windowsize = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
         inputHelper = new InputHelper();
         gameStateManager = new GameStateManager();
         spriteScale = Matrix.CreateScale(1, 1, 1);
@@ -135,6 +138,8 @@ public class GameEnvironment : Game
     protected override void Update(GameTime gameTime)
     {
         HandleInput();
+        gameStateManager.CurrentGameState
+        camera.cornerPosition = cameraPosition;
         gameStateManager.Update(gameTime);
         camera.Update(gameTime);                                                    //UPDATE CAMERA 
     }
