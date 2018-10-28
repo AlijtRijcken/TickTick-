@@ -138,7 +138,7 @@ public class GameEnvironment : Game
     protected override void Update(GameTime gameTime)
     {
         HandleInput();
-        gameStateManager.CurrentGameState
+        camera.state =  gameStateManager.CurrentGameState;
         camera.cornerPosition = cameraPosition;
         gameStateManager.Update(gameTime);
         camera.Update(gameTime);                                                    //UPDATE CAMERA 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Alijt Rijcken/Documents/GitHub/TickTick-/TickTickFinal/Content/Sounds/snd_watercollected.wma</SourceFile>
-  <SourceTime>2011-06-29T04:49:37+02:00</SourceTime>
-  <DestFile>C:/Users/Alijt Rijcken/Documents/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Sounds/snd_watercollected.xnb</DestFile>
-  <DestTime>2018-10-25T13:16:14.0641044+02:00</DestTime>
+  <SourceFile>C:/Users/Pjeromaster/Documents/GitHub/TickTick-/TickTickFinal/Content/Sounds/snd_watercollected.wma</SourceFile>
+  <SourceTime>2018-10-25T14:39:20.6610332+02:00</SourceTime>
+  <DestFile>C:/Users/Pjeromaster/Documents/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Sounds/snd_watercollected.xnb</DestFile>
+  <DestTime>2018-10-28T17:24:36.9721768+01:00</DestTime>
   <Importer>WmaImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

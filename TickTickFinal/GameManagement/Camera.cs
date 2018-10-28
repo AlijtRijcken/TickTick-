@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework; 
 
-public class Camera : GameObject, IGameLoopObject
+public class Camera : GameObject
 {
     public Vector2 cornerPosition = new Vector2(); 
-    IGameLoopObject state;
+    public IGameLoopObject state;
     GameStateManager manager; 
 
     public Camera() : base(0, "Camera")
@@ -21,9 +21,16 @@ public class Camera : GameObject, IGameLoopObject
     {
 
         //player position uptaden <= cam pos
-        state = manager.CurrentGameState;
-        if(state == )
-        position = cornerPosition - GameEnvironment.windowsize/2; 
+        if(state.GetType() == typeof(PlayingState))
+        {
+            position = cornerPosition - GameEnvironment.windowsize / 2;
+        }
+        else
+        {
+            position = new Vector2(0, 0);
+        }
+
+
 
         base.Update(gameTime);
     }
