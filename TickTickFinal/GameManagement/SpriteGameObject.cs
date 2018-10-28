@@ -35,6 +35,11 @@ public class SpriteGameObject : GameObject
             return;
         }
 
+        switch (layer)
+        {
+            default:
+                break;
+        }
         sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
 
         //ADDED

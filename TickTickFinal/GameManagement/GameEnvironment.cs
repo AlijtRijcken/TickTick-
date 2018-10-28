@@ -21,7 +21,6 @@ public class GameEnvironment : Game
     public static Vector2 cameraPosition = new Vector2(0,0);
     public static Vector2 windowsize;
     public static bool followplayer = false;
-
     public GameEnvironment()
     {
         graphics = new GraphicsDeviceManager(this);

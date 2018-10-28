@@ -350,3 +350,4 @@ C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\bin\Windows\x86\De
 C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csproj.CopyComplete
+C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\11.txt

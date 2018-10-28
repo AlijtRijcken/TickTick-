@@ -9,8 +9,8 @@ public class Camera : GameObject
 {
     public Vector2 cornerPosition = new Vector2(); 
     public IGameLoopObject state;
-    GameStateManager manager; 
-
+    public int maxWidth = 2400;
+    int playersize = 100;
     public Camera() : base(0, "Camera")
     {
 
@@ -23,7 +23,7 @@ public class Camera : GameObject
         //player position uptaden <= cam pos
         if(state.GetType() == typeof(PlayingState))
         {
-            position = cornerPosition - GameEnvironment.windowsize / 2;
+            position = FollowPlayer();
         }
         else
         {
@@ -33,5 +33,20 @@ public class Camera : GameObject
 
 
         base.Update(gameTime);
+    }
+    Vector2 FollowPlayer()
+    {
+        Vector2 Camposition;
+        if(cornerPosition.X <= GameEnvironment.windowsize.X - playersize)
+        {
+            Camposition.X = 0;
+        }
+        else if(cornerPosition.X > GameEnvironment.windowsize.X - playersize&& cornerPosition.X <= maxWidth)
+        {
+            Camposition.X = cornerPosition.X - GameEnvironment.windowsize.X + playersize;
+        }
+        else { Camposition.X = maxWidth-GameEnvironment.windowsize.X + playersize; };
+        Camposition.Y = 0;
+        return Camposition;
     }
 }

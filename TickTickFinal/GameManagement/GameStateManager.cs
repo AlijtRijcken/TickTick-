@@ -7,6 +7,7 @@ public class GameStateManager : IGameLoopObject
     Dictionary<string, IGameLoopObject> gameStates;
     IGameLoopObject currentGameState;
     public static bool followtheplayer;
+    public int levelindex;
     public GameStateManager()
     {
         gameStates = new Dictionary<string, IGameLoopObject>();

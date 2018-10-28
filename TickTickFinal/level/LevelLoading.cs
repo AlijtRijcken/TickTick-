@@ -4,10 +4,12 @@ using Microsoft.Xna.Framework;
 
 partial class Level : GameObjectList
 {
-    public void LoadTiles(string path)
+    public void LoadTiles(string location,int index,string extention)
     {
+        int Cellwidth = 72;
+        int Cellheight = 55;
         List<string> textLines = new List<string>();
-        StreamReader fileReader = new StreamReader(path);
+        StreamReader fileReader = new StreamReader(location + index + extention);
         string line = fileReader.ReadLine();
         int width = line.Length;
         while (line != null)
@@ -32,8 +34,8 @@ partial class Level : GameObjectList
         Add(hintTimer);
 
         Add(tiles);
-        tiles.CellWidth = 72;
-        tiles.CellHeight = 55;
+        tiles.CellWidth = Cellwidth;
+        tiles.CellHeight = Cellheight;
         for (int x = 0; x < width; ++x)
         {
             for (int y = 0; y < textLines.Count - 1; ++y)

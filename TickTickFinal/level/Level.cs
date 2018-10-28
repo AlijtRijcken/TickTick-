@@ -4,7 +4,6 @@ partial class Level : GameObjectList
 {
     protected bool locked, solved;
     protected Button quitButton;
-
     public Level(int levelIndex)
     {
         // load the backgrounds
@@ -42,7 +41,7 @@ partial class Level : GameObjectList
         Add(new GameObjectList(2, "enemies"));
         Add(new GameObjectList(3, "tinybombs"));
 
-        LoadTiles("Content/Levels/" + levelIndex + ".txt");
+        LoadTiles("Content/Levels/" , levelIndex , ".txt");
     }
 
     public bool Completed
