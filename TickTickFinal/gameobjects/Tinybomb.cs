@@ -10,7 +10,7 @@ class TinyBomb : SpriteGameObject
 {
     private bool started = false;
     public int direction;
-    private int ThrowSpeed=500;
+    private readonly int ThrowSpeed=500;
     private int counter;
     private int counter2;
     public bool explode = false;
@@ -38,13 +38,11 @@ class TinyBomb : SpriteGameObject
             counter2 = 0;
             Dosomecoolstuff();
         }
-
     }
     
     private void Dosomecoolstuff()
     {
         DoPhysics();
-        //KillEnemies();
     }
     public void DoPhysics()
     {
@@ -55,20 +53,20 @@ class TinyBomb : SpriteGameObject
         {
             int moveit = 1;
 
-            velocity *= -0.5f;
-            while (Colision()&&counter2 <=300)
+            velocity *= -0.9f;
+            while (Colision()&&counter2 <=10)
             {
                 counter2++;
                 position.Y += moveit;
                 if (moveit < 0)
                 {
                     moveit *= -1;
-                    moveit += 1;
+                    moveit += 5;
                 }
                 else if (moveit > 0)
                 {
                     moveit *= -1;
-                    moveit -= +1;
+                    moveit -= 5;
                 }
             }
         }
@@ -77,6 +75,7 @@ class TinyBomb : SpriteGameObject
     {
         int xFloor = (int)position.X / tiles.CellWidth;
         int yFloor = (int)position.Y / tiles.CellHeight;
+
 
         for (int y = yFloor - 2; y <= yFloor + 1; ++y)
         {
@@ -109,5 +108,14 @@ class TinyBomb : SpriteGameObject
         }
         return false;
     }
-
+}
+class Explosion : AnimatedGameObject
+{
+    public Rectangle Killbox;
+    public Explosion()
+    {
+        LoadAnimation("Sprites/Player/spr_explode@5x5", "explode", false, 0.04f);
+        PlayAnimation("explode");
+        Killbox = new Rectangle((int)position.X-50, (int)position.Y-50, (int)position.X + 50, (int)position.Y + 50);
+    }
 }

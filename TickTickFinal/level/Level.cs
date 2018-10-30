@@ -4,13 +4,19 @@ partial class Level : GameObjectList
 {
     protected bool locked, solved;
     protected Button quitButton;
+    TinyBomb tinyBomb;
+    Explosion explosion;
+
     public Level(int levelIndex)
     {
+        
         // load the backgrounds
         GameObjectList backgrounds = new GameObjectList(0, "backgrounds");
         SpriteGameObject backgroundSky = new SpriteGameObject("Backgrounds/spr_sky");
         backgroundSky.Position = new Vector2(0, GameEnvironment.Screen.Y - backgroundSky.Height);
         backgrounds.Add(backgroundSky);
+        //lives = new TextGameObject("Fonts/HintFont", 0);
+
 
         // add a few random mountains
         for (int i = 0; i < 5; i++)
@@ -39,7 +45,7 @@ partial class Level : GameObjectList
 
         Add(new GameObjectList(1, "waterdrops"));
         Add(new GameObjectList(2, "enemies"));
-        Add(new GameObjectList(3, "tinybombs"));
+        
 
         LoadTiles("Content/Levels/" , levelIndex , ".txt");
     }
