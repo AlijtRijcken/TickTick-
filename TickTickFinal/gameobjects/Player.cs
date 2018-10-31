@@ -6,14 +6,17 @@ using Microsoft.Xna.Framework.Input;
 partial class Player : AnimatedGameObject
 {
     protected Vector2 startPosition;
-    private int Direction = 1; //richting waar player naar kijkt, Dit moet worden vervangen met hetgene dat bepaald welkekant de player op kijkt, kon ik niet vinden.
+    public int Direction = 1; //richting waar player naar kijkt, Dit moet worden vervangen met hetgene dat bepaald welkekant de player op kijkt, kon ik niet vinden.
     protected bool isOnTheGround;
     protected float previousYPosition;
     protected bool isAlive;
     protected bool exploded;
     protected bool finished;
     protected bool walkingOnIce, walkingOnHot;
-    TinyBomb Tiny;
+    public bool spawnTiny;
+    public int lives;
+    protected int airtime;
+    protected SpriteFont spriteFont;
 
     public Player(Vector2 start) : base(2, "player")
     {
@@ -22,8 +25,9 @@ partial class Player : AnimatedGameObject
         LoadAnimation("Sprites/Player/spr_jump@14", "jump", false, 0.05f); 
         LoadAnimation("Sprites/Player/spr_celebrate@14", "celebrate", false, 0.05f);
         LoadAnimation("Sprites/Player/spr_die@5", "die", false);
-        LoadAnimation("Sprites/Player/spr_explode@5x5", "explode", false, 0.04f); 
+        LoadAnimation("Sprites/Player/spr_explode@5x5", "explode", false, 0.04f);
 
+        spriteFont = GameEnvironment.AssetManager.Content.Load<SpriteFont>("Fonts/HintFont");
         startPosition = start;
         Reset();
     }
@@ -40,6 +44,8 @@ partial class Player : AnimatedGameObject
         walkingOnHot = false;
         PlayAnimation("idle");
         previousYPosition = BoundingBox.Bottom;
+        lives = 3;
+        airtime = 0;
     }
 
     public override void HandleInput(InputHelper inputHelper)
@@ -55,11 +61,11 @@ partial class Player : AnimatedGameObject
         }
         if (inputHelper.IsKeyDown(Keys.F))
         {
-            Tiny = new TinyBomb();
-            Tiny.direction = Direction;
-            Tiny.Position = position;
-            TileField tiles = GameWorld.Find("tiles") as TileField;
-            Tiny.tiles = tiles;
+            spawnTiny = true;
+        }
+        if (inputHelper.IsKeyDown(Keys.F) == false)
+        {
+            spawnTiny = false;
         }
         if (inputHelper.IsKeyDown(Keys.Left))
         {
@@ -83,14 +89,12 @@ partial class Player : AnimatedGameObject
         {
             Jump();
         }
+
     }
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
         base.Draw(gameTime, spriteBatch);
-        if (Tiny != null)
-        {
-            Tiny.Draw(gameTime, spriteBatch);
-        }
+        spriteBatch.DrawString(spriteFont, "lives" + lives,  new Vector2(120, 10), Color.Black);
 
     }
     public override void Update(GameTime gameTime)
@@ -98,14 +102,16 @@ partial class Player : AnimatedGameObject
         GameEnvironment.cameraPosition = position;
         
         base.Update(gameTime);
-        if (Tiny != null)
-        {
-            Tiny.Update(gameTime);
-        }
         if (!finished && isAlive)
         {
             if (isOnTheGround)
             {
+                if(airtime >= 33) //waneer levens eraf gaan
+                {
+                    lives--;
+                }
+
+                airtime = 0;
                 if (velocity.X == 0)
                 {
                     PlayAnimation("idle");
@@ -118,6 +124,14 @@ partial class Player : AnimatedGameObject
             else if (velocity.Y < 0)
             {
                 PlayAnimation("jump");
+            }
+            else
+            {
+                airtime++;
+            }
+            if (lives <= 0)
+            {
+                Explode();
             }
 
             TimerGameObject timer = GameWorld.Find("timer") as TimerGameObject;
