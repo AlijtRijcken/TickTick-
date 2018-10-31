@@ -11,7 +11,7 @@ class TimerGameObject : TextGameObject
         : base("Fonts/Hud", layer, id)
     {
         multiplier = 1;
-        timeLeft = TimeSpan.FromMinutes(0.5);
+        timeLeft = TimeSpan.FromMinutes(0.4);
         running = true;
     }
 
@@ -39,7 +39,7 @@ class TimerGameObject : TextGameObject
     public override void Reset()
     {
         base.Reset();
-        timeLeft = TimeSpan.FromMinutes(0.5);
+        timeLeft = TimeSpan.FromSeconds(50); //TimeSpan.FromMinutes(0.4);
         running = true;
     }
 

@@ -49,7 +49,8 @@ class PatrollingEnemy : AnimatedGameObject
         Player player = GameWorld.Find("player") as Player;
         if (CollidesWith(player))
         {
-            player.Die(false);
+            player.lives--;
+            Reset();
         }
     }
 

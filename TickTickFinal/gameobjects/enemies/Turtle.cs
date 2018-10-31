@@ -54,7 +54,7 @@ class Turtle : AnimatedGameObject
         }
         if (sneezeTime > 0)
         {
-            player.Die(false);
+            player.lives--;//changed
         }
         else if (idleTime > 0 && player.Velocity.Y > 0)
         {

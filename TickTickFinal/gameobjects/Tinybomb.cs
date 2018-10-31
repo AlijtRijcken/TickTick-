@@ -15,7 +15,7 @@ class TinyBomb : SpriteGameObject
     private int counter2;
     public bool explode = false;
     public TileField tiles;
-    public TinyBomb(int layer = 0, string id = "") : base("Sprites/spr_water", layer, id)
+    public TinyBomb(int layer = 0, string id = "") : base(1,"Sprites/spr_water", layer, id)
     {
         //position += new Vector2(40, -50);//werkt for some reason niet
     }

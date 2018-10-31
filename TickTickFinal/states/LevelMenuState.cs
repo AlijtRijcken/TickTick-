@@ -11,7 +11,7 @@ class LevelMenuState : GameObjectList
         List<Level> levels = playingState.Levels;
 
         // add a background
-        SpriteGameObject background = new SpriteGameObject("Backgrounds/spr_levelselect", 0, "background");
+        SpriteGameObject background = new SpriteGameObject(2,"Backgrounds/spr_levelselect", 0, "background");
         Add(background);
 
         // add the level buttons

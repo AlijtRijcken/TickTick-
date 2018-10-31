@@ -6,13 +6,16 @@ partial class Level : GameObjectList
     protected Button quitButton;
     TinyBomb tinyBomb;
     Explosion explosion;
+    Camera camera;
+    int length;//verplaatst
+    int _Cellheight;
 
     public Level(int levelIndex)
     {
         
         // load the backgrounds
         GameObjectList backgrounds = new GameObjectList(0, "backgrounds");
-        SpriteGameObject backgroundSky = new SpriteGameObject("Backgrounds/spr_sky");
+        SpriteGameObject backgroundSky = new SpriteGameObject(0,"Backgrounds/spr_sky");
         backgroundSky.Position = new Vector2(0, GameEnvironment.Screen.Y - backgroundSky.Height);
         backgrounds.Add(backgroundSky);
         //lives = new TextGameObject("Fonts/HintFont", 0);
@@ -21,9 +24,25 @@ partial class Level : GameObjectList
         // add a few random mountains
         for (int i = 0; i < 5; i++)
         {
-            SpriteGameObject mountain = new SpriteGameObject("Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 1);
-            mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * GameEnvironment.Screen.X - mountain.Width / 2, 
+            SpriteGameObject mountain = new SpriteGameObject(0, "Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 1);
+            mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * 2400 - mountain.Width / 2,
+                GameEnvironment.Screen.Y - mountain.Height + 0);
+
+            backgrounds.Add(mountain);
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            SpriteGameObject mountain = new SpriteGameObject(4,"Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 1);
+            mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * 2400 - mountain.Width / 2, 
                 GameEnvironment.Screen.Y - mountain.Height);
+            backgrounds.Add(mountain);
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            SpriteGameObject mountain = new SpriteGameObject(3, "Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 1);
+            mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * 2400 - mountain.Width / 2,
+                GameEnvironment.Screen.Y - mountain.Height+100);
+            
             backgrounds.Add(mountain);
         }
 
@@ -31,7 +50,7 @@ partial class Level : GameObjectList
         backgrounds.Add(clouds);
         Add(backgrounds);
 
-        SpriteGameObject timerBackground = new SpriteGameObject("Sprites/spr_timer", 100);
+        SpriteGameObject timerBackground = new SpriteGameObject(0,"Sprites/spr_timer", 100);
         timerBackground.Position = new Vector2(10, 10);
         Add(timerBackground);
         TimerGameObject timer = new TimerGameObject(101, "timer");
@@ -45,6 +64,7 @@ partial class Level : GameObjectList
 
         Add(new GameObjectList(1, "waterdrops"));
         Add(new GameObjectList(2, "enemies"));
+        camera = new Camera();
         
 
         LoadTiles("Content/Levels/" , levelIndex , ".txt");

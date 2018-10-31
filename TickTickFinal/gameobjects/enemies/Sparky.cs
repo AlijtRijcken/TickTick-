@@ -65,7 +65,8 @@ class Sparky : AnimatedGameObject
         Player player = GameWorld.Find("player") as Player;
         if (CollidesWith(player) && idleTime <= 0)
         {
-            player.Die(false);
+            player.lives-- ; //changed
+            Reset();
         }
     }
 }

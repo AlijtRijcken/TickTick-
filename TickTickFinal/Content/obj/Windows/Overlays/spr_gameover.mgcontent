@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Alijt Rijcken/Documents/GitHub/TickTick-/TickTickFinal/Content/Overlays/spr_gameover.png</SourceFile>
-  <SourceTime>2012-06-04T21:53:14+02:00</SourceTime>
-  <DestFile>C:/Users/Alijt Rijcken/Documents/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Overlays/spr_gameover.xnb</DestFile>
-  <DestTime>2018-10-30T14:09:44.8294207+01:00</DestTime>
+  <SourceFile>Z:/Documenten/GitHub/TickTick-/TickTickFinal/Content/Overlays/spr_gameover.png</SourceFile>
+  <SourceTime>2018-10-31T12:16:54.3943689+01:00</SourceTime>
+  <DestFile>Z:/Documenten/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Overlays/spr_gameover.xnb</DestFile>
+  <DestTime>2018-10-31T12:18:32.6346973+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

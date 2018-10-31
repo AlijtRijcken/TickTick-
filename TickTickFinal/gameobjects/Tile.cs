@@ -14,8 +14,8 @@ class Tile : SpriteGameObject
     protected bool hot;
     protected bool ice;
 
-    public Tile(string assetname = "", TileType tp = TileType.Background, int layer = 0, string id = "")
-        : base(assetname, layer, id)
+    public Tile(string assetname = "", TileType tp = TileType.Background, int layer = 1, string id = "")
+        : base(1,assetname, layer, id)
     {
         type = tp;
         hot = false;

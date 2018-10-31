@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
+using System.Collections.Generic;
 partial class Player : AnimatedGameObject
 {
     protected Vector2 startPosition;
@@ -15,8 +15,14 @@ partial class Player : AnimatedGameObject
     protected bool walkingOnIce, walkingOnHot;
     public bool spawnTiny;
     public int lives;
+    private int count;
     protected int airtime;
     protected SpriteFont spriteFont;
+    public List<Lives> drawlives = new List<Lives>();
+    //public Lives life0;
+    //public Lives life1;
+    //public Lives life2;
+    
 
     public Player(Vector2 start) : base(2, "player")
     {
@@ -46,6 +52,15 @@ partial class Player : AnimatedGameObject
         previousYPosition = BoundingBox.Bottom;
         lives = 3;
         airtime = 0;
+        if (drawlives != null)
+        {
+            drawlives.Clear();
+        }
+        for (int i = 0; i < lives; i++)
+        {
+            Lives live = new Lives();
+            drawlives.Add(live);
+        }
     }
 
     public override void HandleInput(InputHelper inputHelper)
@@ -95,13 +110,48 @@ partial class Player : AnimatedGameObject
     {
         base.Draw(gameTime, spriteBatch);
         spriteBatch.DrawString(spriteFont, "lives" + lives,  new Vector2(120, 10), Color.Black);
+        for (int i = 0; i < lives; i++)
+        {
+            drawlives[i].Draw(gameTime, spriteBatch);
+        }
+        //switch (lives)
+        //{
+        //    case 1:
+        //        {
+        //            life0.Draw(gameTime,spriteBatch);
+        //            break;
+        //        }
+        //    case 2:
+        //        {
+        //            life1.Draw(gameTime, spriteBatch);
+        //            goto case 1;
+        //        }
+        //    case 3:
+        //        {
+        //            life2.Draw(gameTime, spriteBatch);
+        //            goto case 2;
+        //        }
+                
+        //}
 
     }
     public override void Update(GameTime gameTime)
     {
         GameEnvironment.cameraPosition = position;
-        
+        foreach (Lives live in drawlives)
+        {
+
+            live.Update(gameTime);
+        }
         base.Update(gameTime);
+
+        //life0.Position = position + new Vector2(-100, -120);
+        //life1.Position = position + new Vector2(-50, -120);
+        //life2.Position = position + new Vector2(0, -120);
+        for (int i = 0; i < lives; i++)
+        {
+            drawlives[i].Position = position - new Vector2(100 - i * 50, 100);
+        }
         if (!finished && isAlive)
         {
             if (isOnTheGround)
@@ -207,5 +257,12 @@ partial class Player : AnimatedGameObject
         velocity.X = 0.0f;
         PlayAnimation("celebrate");
         GameEnvironment.AssetManager.PlaySound("Sounds/snd_player_won");
+    }
+}
+
+class Lives : SpriteGameObject
+{
+    public Lives(int layer = 0, string id = "") : base(1,"Sprites/spr_water", layer, id)
+    {
     }
 }

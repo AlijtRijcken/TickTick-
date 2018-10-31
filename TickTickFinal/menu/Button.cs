@@ -3,7 +3,7 @@
     protected bool pressed;
 
     public Button(string imageAsset, int layer = 0, string id = "")
-        : base(imageAsset, layer, id)
+        : base(0,imageAsset, layer, id)
     {
         pressed = false;
     }

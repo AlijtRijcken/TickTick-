@@ -9,10 +9,10 @@ public class SpriteGameObject : GameObject
 
     public bool cameraFollow;                                           //ADDED
     public bool parallaxFollow;                                         //ADDED
-
+    private int camera_movement;
     Camera camera;                                                      //ADDED
 
-    public SpriteGameObject(string assetName, int layer = 0, string id = "", int sheetIndex = 0)
+    public SpriteGameObject(int camera_movement,string assetName, int layer = 0, string id = "", int sheetIndex = 0)
         : base(layer, id)
     {
         if (assetName != "")
@@ -23,7 +23,7 @@ public class SpriteGameObject : GameObject
         {
             sprite = null;
         }
-
+        this.camera_movement = camera_movement;
         //this.cameraFollow = cameraFollow; 
         camera = GameEnvironment.camera;                                    //ADDED
     }    
@@ -35,12 +35,37 @@ public class SpriteGameObject : GameObject
             return;
         }
 
-        switch (layer)
+        switch (camera_movement)
         {
-            default:
-                break;
+            case 0:
+                {
+                    sprite.Draw(spriteBatch, this.GlobalPosition, origin);
+                    break;
+                }
+            case 1:
+                {
+                    sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
+                    break;
+                }
+            case 2:
+                {
+                    sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position*0.8f , origin);
+                    break;
+                }
+            case 3:
+                {
+                    sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position*0.4f , origin);
+                    break;
+                }
+            case 4:
+                {
+                    sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position*0.2f , origin);
+                    break;
+                }
+
+
         }
-        sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
+        //sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
 
         //ADDED
 
