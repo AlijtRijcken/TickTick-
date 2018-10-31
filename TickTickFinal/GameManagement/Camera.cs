@@ -9,8 +9,11 @@ public class Camera : GameObject
 {
     public Vector2 cornerPosition = new Vector2(); 
     public IGameLoopObject state;
+
     public static Vector2 maxSize = new Vector2(0,0);
+
     int playersize = 100;
+
     public Camera() : base(0, "Camera")
     {
 

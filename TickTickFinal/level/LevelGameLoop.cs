@@ -19,11 +19,10 @@ partial class Level : GameObjectList
         base.Update(gameTime);
         TimerGameObject timer = Find("timer") as TimerGameObject;
         Player player = Find("player") as Player;
-        //lives.Text = "lives" + player.lives;
-      //  lives. = player.GlobalPosition - new Vector2(0, 100);
          
         TileField tiles = GameWorld.Find("tiles") as TileField;;
         Camera.maxSize = new Vector2(length * tiles.CellWidth, tiles.Rows * tiles.CellWidth);  //added
+
         if (player.spawnTiny && tinyBomb == null)
         {
 
