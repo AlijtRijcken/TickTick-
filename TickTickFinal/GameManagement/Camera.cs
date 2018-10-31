@@ -45,7 +45,10 @@ public class Camera : GameObject
         {
             Camposition.X = cornerPosition.X - GameEnvironment.windowsize.X + playersize;
         }
-        else { Camposition.X = maxWidth-GameEnvironment.windowsize.X + playersize; };
+        else
+        {
+            Camposition.X = maxWidth-GameEnvironment.windowsize.X + playersize;
+        }
         Camposition.Y = 0;
         return Camposition;
     }
