@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework;
 
 partial class Level : GameObjectList
 {
+    public double time; //ADDED----------------------------------------
+
     public void LoadTiles(string location,int index,string extention)
     {
         int Cellwidth = 72;
@@ -17,16 +19,19 @@ partial class Level : GameObjectList
             textLines.Add(line);
             line = fileReader.ReadLine();
         }
-        TileField tiles = new TileField(textLines.Count - 1, width, 1, "tiles");
+        TileField tiles = new TileField(textLines.Count - 2, width, 1, "tiles");    //CHANGE textLines.Count - 1 to -2
 
         GameObjectList hintField = new GameObjectList(100);
         Add(hintField);
-        string hint = textLines[textLines.Count - 1];
+        //Last row of .txt will specify the time. 
+        time = double.Parse(textLines[textLines.Count - 1]); //ADDED----------------------------------------------------
+        string hint = textLines[textLines.Count - 2];
         SpriteGameObject hintFrame = new SpriteGameObject("Overlays/spr_frame_hint", 1);
         hintField.Position = new Vector2((GameEnvironment.Screen.X - hintFrame.Width) / 2, 10);
         hintField.Add(hintFrame);
         TextGameObject hintText = new TextGameObject("Fonts/HintFont", 2);
-        hintText.Text = textLines[textLines.Count - 1];
+        //hit will be de second last row at the moment
+        hintText.Text = textLines[textLines.Count - 2]; //CHANGED-------------------------------------------------------
         hintText.Position = new Vector2(120, 25);
         hintText.Color = Color.Black;
         hintField.Add(hintText);
@@ -38,7 +43,7 @@ partial class Level : GameObjectList
         tiles.CellHeight = Cellheight;
         for (int x = 0; x < width; ++x)
         {
-            for (int y = 0; y < textLines.Count - 1; ++y)
+            for (int y = 0; y < textLines.Count - 2; ++y) //CHANGE textLines.Count - 1 to -2
             {
                 Tile t = LoadTile(textLines[y][x], x, y);
                 tiles.Add(t, x, y);

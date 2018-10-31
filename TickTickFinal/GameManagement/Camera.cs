@@ -9,8 +9,9 @@ public class Camera : GameObject
 {
     public Vector2 cornerPosition = new Vector2(); 
     public IGameLoopObject state;
-    public int maxWidth = 2400;
+    public static Vector2 maxSize = new Vector2(1400,0);
     int playersize = 100;
+
     public Camera() : base(0, "Camera")
     {
 
@@ -41,13 +42,13 @@ public class Camera : GameObject
         {
             Camposition.X = 0;
         }
-        else if(cornerPosition.X > GameEnvironment.windowsize.X - playersize&& cornerPosition.X <= maxWidth)
+        else if(cornerPosition.X > GameEnvironment.windowsize.X - playersize&& cornerPosition.X <= maxSize.X)
         {
             Camposition.X = cornerPosition.X - GameEnvironment.windowsize.X + playersize;
         }
         else
         {
-            Camposition.X = maxWidth-GameEnvironment.windowsize.X + playersize;
+            Camposition.X = maxSize.X - GameEnvironment.windowsize.X + playersize;
         }
         Camposition.Y = 0;
         return Camposition;
