@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 partial class Level : GameObjectList
 {
@@ -7,9 +8,7 @@ partial class Level : GameObjectList
     TinyBomb tinyBomb;
     Explosion explosion;
     Camera camera;
-    int length;//verplaatst
-    int _Cellheight;
-
+    public SpriteFont spriteFont;
     public Level(int levelIndex)
     {
         
@@ -19,7 +18,7 @@ partial class Level : GameObjectList
         backgroundSky.Position = new Vector2(0, GameEnvironment.Screen.Y - backgroundSky.Height);
         backgrounds.Add(backgroundSky);
         //lives = new TextGameObject("Fonts/HintFont", 0);
-
+        spriteFont = GameEnvironment.AssetManager.Content.Load<SpriteFont>("Fonts/HintFont");
 
         // add a few random mountains
         for (int i = 0; i < 5; i++)

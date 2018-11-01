@@ -44,15 +44,28 @@ public class Camera : GameObject
         {
             Camposition.X = 0;
         }
-        else if(cornerPosition.X > GameEnvironment.windowsize.X - playersize&& cornerPosition.X <= maxSize.X)
+        else if(cornerPosition.X > GameEnvironment.windowsize.X - playersize&& cornerPosition.X <= maxSize.X - GameEnvironment.windowsize.X + playersize/2)
         {
             Camposition.X = cornerPosition.X - GameEnvironment.windowsize.X + playersize;
         }
         else
         {
-            Camposition.X = maxSize.X - GameEnvironment.windowsize.X + playersize;
+            Camposition.X = maxSize.X - 2*GameEnvironment.windowsize.X + 1.5f*playersize;
         }
-        Camposition.Y = 0;
+
+
+        if (cornerPosition.Y <= GameEnvironment.windowsize.Y - playersize)
+        {
+            Camposition.Y = 0;
+        }
+        else if (cornerPosition.Y > GameEnvironment.windowsize.Y - playersize && cornerPosition.Y <= maxSize.Y - GameEnvironment.windowsize.Y)
+        {
+            Camposition.Y = cornerPosition.Y - GameEnvironment.windowsize.Y + playersize;
+        }
+        else
+        {
+            Camposition.Y = maxSize.Y - 2 * GameEnvironment.windowsize.Y + 1.25f * playersize;
+        }
         return Camposition;
     }
 }

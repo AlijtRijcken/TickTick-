@@ -174,7 +174,6 @@ C:\Users\Alijt Rijcken\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\Ti
 C:\Users\Alijt Rijcken\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csproj.CopyComplete
 C:\Users\Alijt Rijcken\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTick5.exe
 C:\Users\Alijt Rijcken\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTick5.pdb
-C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csprojAssemblyReference.cache
 C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csproj.CoreCompileInputs.cache
 C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTick5.exe
 C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTick5.pdb
@@ -353,3 +352,5 @@ Z:\Documenten\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csproj.
 Z:\Documenten\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTick5.exe
 Z:\Documenten\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTick5.pdb
 Z:\Documenten\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csprojAssemblyReference.cache
+C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\12.txt
+C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csprojAssemblyReference.cache

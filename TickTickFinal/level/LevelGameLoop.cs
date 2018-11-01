@@ -21,8 +21,8 @@ partial class Level : GameObjectList
         Player player = Find("player") as Player;
          
         TileField tiles = GameWorld.Find("tiles") as TileField;;
-        Camera.maxSize = new Vector2(length * tiles.CellWidth, tiles.Rows * tiles.CellWidth);  //added
-
+        Camera.maxSize = new Vector2(tiles.Columns * tiles.CellWidth, tiles.Rows * tiles.CellHeight);  //added
+        
         if (player.spawnTiny && tinyBomb == null)
         {
 

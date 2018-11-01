@@ -15,13 +15,9 @@ partial class Player : AnimatedGameObject
     protected bool walkingOnIce, walkingOnHot;
     public bool spawnTiny;
     public int lives;
-    private int count;
     protected int airtime;
     protected SpriteFont spriteFont;
     public List<Lives> drawlives = new List<Lives>();
-    //public Lives life0;
-    //public Lives life1;
-    //public Lives life2;
     
 
     public Player(Vector2 start) : base(2, "player")
@@ -114,25 +110,6 @@ partial class Player : AnimatedGameObject
         {
             drawlives[i].Draw(gameTime, spriteBatch);
         }
-        //switch (lives)
-        //{
-        //    case 1:
-        //        {
-        //            life0.Draw(gameTime,spriteBatch);
-        //            break;
-        //        }
-        //    case 2:
-        //        {
-        //            life1.Draw(gameTime, spriteBatch);
-        //            goto case 1;
-        //        }
-        //    case 3:
-        //        {
-        //            life2.Draw(gameTime, spriteBatch);
-        //            goto case 2;
-        //        }
-                
-        //}
 
     }
     public override void Update(GameTime gameTime)
@@ -144,10 +121,6 @@ partial class Player : AnimatedGameObject
             live.Update(gameTime);
         }
         base.Update(gameTime);
-
-        //life0.Position = position + new Vector2(-100, -120);
-        //life1.Position = position + new Vector2(-50, -120);
-        //life2.Position = position + new Vector2(0, -120);
         for (int i = 0; i < lives; i++)
         {
             drawlives[i].Position = position - new Vector2(100 - i * 50, 100);

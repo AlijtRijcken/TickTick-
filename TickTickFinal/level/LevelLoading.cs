@@ -9,13 +9,12 @@ partial class Level : GameObjectList
     public void LoadTiles(string location,int index,string extention)
     {
 
-        int Cellwidth = 72;//verplaatst
+        int Cellwidth = 72;
         int Cellheight = 55;
         List<string> textLines = new List<string>();
         StreamReader fileReader = new StreamReader(location + index + extention);
         string line = fileReader.ReadLine();
         int width = line.Length;
-        length = width;
         while (line != null)
         {
             textLines.Add(line);
@@ -29,7 +28,7 @@ partial class Level : GameObjectList
         //Last row of .txt will specify the time. 
         time = double.Parse(textLines[textLines.Count - 1]); //ADDED----------------------------------------------------
         string hint = textLines[textLines.Count - 2];
-        SpriteGameObject hintFrame = new SpriteGameObject("Overlays/spr_frame_hint", 1);
+        SpriteGameObject hintFrame = new SpriteGameObject(0,"Overlays/spr_frame_hint", 1);
 
         hintField.Position = new Vector2((GameEnvironment.Screen.X - hintFrame.Width) / 2, 10);
         hintField.Add(hintFrame);
