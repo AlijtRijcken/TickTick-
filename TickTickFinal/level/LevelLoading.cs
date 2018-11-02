@@ -86,6 +86,8 @@ partial class Level : GameObjectList
                 return LoadRocketTile(x, y, false);
             case 'S':
                 return LoadSparkyTile(x, y);
+            case 'L':
+                return LoadExtralifeTile(x, y);
             case 'A':
             case 'B':
             case 'C':
@@ -179,6 +181,17 @@ partial class Level : GameObjectList
         w.Position = new Vector2(x * tiles.CellWidth, y * tiles.CellHeight - 10);
         w.Position += new Vector2(tiles.CellWidth, tiles.CellHeight) / 2;
         waterdrops.Add(w);
+        return new Tile();
+    }
+    private Tile LoadExtralifeTile(int x, int y)
+    {
+        GameObjectList Extralife = Find("Extralife") as GameObjectList;
+        TileField tiles = Find("tiles") as TileField;
+        Extralife w = new Extralife();
+        w.Origin = w.Center;
+        w.Position = new Vector2(x * tiles.CellWidth, y * tiles.CellHeight - 10);
+        w.Position += new Vector2(tiles.CellWidth, tiles.CellHeight) / 2;
+        Extralife.Add(w);
         return new Tile();
     }
 }

@@ -57,7 +57,7 @@ class Rocket : AnimatedGameObject
             }
             else
             {
-                player.lives--; //changed
+                player.takedamage = true; //cahnegde
                 Reset();
             }
         }

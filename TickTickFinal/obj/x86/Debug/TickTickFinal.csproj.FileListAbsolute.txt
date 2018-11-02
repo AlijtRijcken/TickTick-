@@ -354,3 +354,5 @@ Z:\Documenten\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTick5.pdb
 Z:\Documenten\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csprojAssemblyReference.cache
 C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\12.txt
 C:\Users\Pjeromaster\Documents\GitHub\TickTick-\TickTickFinal\obj\x86\Debug\TickTickFinal.csprojAssemblyReference.cache
+Z:\Documenten\GitHub\TickTick-\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\12.txt
+Z:\Documenten\GitHub\TickTick-\TickTickFinal\bin\Windows\x86\Debug\Content\Sprites\Lives.xnb

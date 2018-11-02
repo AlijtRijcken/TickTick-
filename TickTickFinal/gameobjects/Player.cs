@@ -16,6 +16,9 @@ partial class Player : AnimatedGameObject
     public bool spawnTiny;
     public int lives;
     protected int airtime;
+    public bool takedamage;
+    public bool invulnerablity;
+    private int counter;
     protected SpriteFont spriteFont;
     public List<Lives> drawlives = new List<Lives>();
     
@@ -36,6 +39,8 @@ partial class Player : AnimatedGameObject
 
     public override void Reset()
     {
+        takedamage = false;
+        invulnerablity = false;
         position = startPosition;
         velocity = Vector2.Zero;
         isOnTheGround = true;
@@ -52,7 +57,7 @@ partial class Player : AnimatedGameObject
         {
             drawlives.Clear();
         }
-        for (int i = 0; i < lives; i++)
+        for (int i = 0; i < 10; i++)
         {
             Lives live = new Lives();
             drawlives.Add(live);
@@ -115,6 +120,22 @@ partial class Player : AnimatedGameObject
     public override void Update(GameTime gameTime)
     {
         GameEnvironment.cameraPosition = position;
+        if(invulnerablity == false && takedamage == true)
+        {
+            lives--;
+            invulnerablity = true;
+        }
+        if (invulnerablity)
+        {
+            counter++;
+            if (counter == 120)
+            {
+                invulnerablity = false;
+                counter = 0;
+                takedamage = false;
+            }
+
+        }
         foreach (Lives live in drawlives)
         {
 
@@ -131,7 +152,8 @@ partial class Player : AnimatedGameObject
             {
                 if(airtime >= 33) //waneer levens eraf gaan
                 {
-                    lives--;
+                    // lives--;
+                    takedamage = true;
                 }
 
                 airtime = 0;
