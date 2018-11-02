@@ -44,7 +44,7 @@ class TimerGameObject : TextGameObject
     {
         base.Reset();
 
-        timeLeft = TimeSpan.FromSeconds(time);
+        timeLeft = TimeSpan.FromSeconds(time);      //CHANGED
 
         running = true;
     }

@@ -9,21 +9,18 @@ public class Camera : GameObject
 {
     public Vector2 cornerPosition = new Vector2(); 
     public IGameLoopObject state;
-
     public static Vector2 maxSize = new Vector2(0,0);
-
     int playersize = 100;
 
     public Camera() : base(0, "Camera")
     {
-
+        //Default position camera
         position = new Vector2(0, 0); 
     }
 
     public override void Update(GameTime gameTime)
     {
-
-        //player position uptaden <= cam pos
+        //only follow the player with the camera when gamestate = playingstate
         if(state.GetType() == typeof(PlayingState))
         {
             position = FollowPlayer();
@@ -32,11 +29,10 @@ public class Camera : GameObject
         {
             position = new Vector2(0, 0);
         }
-
-
-
         base.Update(gameTime);
     }
+
+    //calculate boundaries when camera follows player
     Vector2 FollowPlayer()
     {
         Vector2 Camposition;
@@ -52,8 +48,6 @@ public class Camera : GameObject
         {
             Camposition.X = maxSize.X - 2*GameEnvironment.windowsize.X + 1.5f*playersize;
         }
-
-
         if (cornerPosition.Y <= GameEnvironment.windowsize.Y - playersize)
         {
             Camposition.Y = 0;

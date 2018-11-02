@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>Z:/Documenten/GitHub/TickTick-/TickTickFinal/Content/Sounds/snd_player_die.wma</SourceFile>
-  <SourceTime>2018-11-02T13:36:55.1328691+01:00</SourceTime>
-  <DestFile>Z:/Documenten/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Sounds/snd_player_die.xnb</DestFile>
-  <DestTime>2018-11-02T13:37:48.5360023+01:00</DestTime>
+  <SourceFile>C:/Users/Alijt Rijcken/Documents/GitHub/TickTick-/TickTickFinal/Content/Sounds/snd_player_die.wma</SourceFile>
+  <SourceTime>2018-10-31T17:01:41.6846492+01:00</SourceTime>
+  <DestFile>C:/Users/Alijt Rijcken/Documents/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Sounds/snd_player_die.xnb</DestFile>
+  <DestTime>2018-11-02T15:41:51.5066714+01:00</DestTime>
   <Importer>WmaImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

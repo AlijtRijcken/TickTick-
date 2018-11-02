@@ -50,6 +50,7 @@ class Rocket : AnimatedGameObject
         Player player = GameWorld.Find("player") as Player;
         if (CollidesWith(player) && visible)
         {
+            //if player.Y is smaller than the position of the Rocket, reset the rocket. 
             if (player.Position.Y <= position.Y - 0.7f * player.Sprite.Height)
             {
                 player.Jump();
@@ -57,7 +58,7 @@ class Rocket : AnimatedGameObject
             }
             else
             {
-                player.takedamage = true; //cahnegde
+                player.takedamage = true;               //CHANGED
                 Reset();
             }
         }

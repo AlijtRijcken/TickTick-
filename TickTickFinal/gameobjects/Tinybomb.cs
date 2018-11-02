@@ -15,45 +15,50 @@ class TinyBomb : SpriteGameObject
     private int counter2;
     public bool explode = false;
     public TileField tiles;
+
     public TinyBomb(int layer = 0, string id = "") : base(1,"Sprites/spr_water", layer, id)
     {
-        //position += new Vector2(40, -50);//werkt for some reason niet
     }
+
     public override void Update(GameTime gameTime)
     {
+        //counter telt de tijd die mag verstrijken totdat de bom ontploft.
         counter++;
         if(counter == 150)
         {
             explode = true;
         }
         base.Update(gameTime);
+
+        //mini constructor
         if (started == false)
         {
             position += new Vector2(50*direction, -50);
             velocity.Y = -1000;
             started = true;
         }
+
+        //
         if (explode != true)
         {
             counter2 = 0;
-            Dosomecoolstuff();
+            DoPhysics();
         }
     }
-    
-    private void Dosomecoolstuff()
-    {
-        DoPhysics();
-    }
+
     public void DoPhysics()
     {
-
+        //richting & snelheid
         velocity.X = direction * ThrowSpeed;
         velocity.Y += 55;
+
+        //checken op Colision.
         if (Colision())
         {
             int moveit = 1;
-
             velocity *= -0.9f;
+
+            //gaat erover welke kant de bom op gaat als hij gecollide heeft.
             while (Colision()&&counter2 <=10)
             {
                 counter2++;
@@ -76,7 +81,6 @@ class TinyBomb : SpriteGameObject
         int xFloor = (int)position.X / tiles.CellWidth;
         int yFloor = (int)position.Y / tiles.CellHeight;
 
-
         for (int y = yFloor - 2; y <= yFloor + 1; ++y)
         {
             for (int x = xFloor - 1; x <= xFloor + 1; ++x)
@@ -98,7 +102,7 @@ class TinyBomb : SpriteGameObject
                 Vector2 depth = Collision.CalculateIntersectionDepth(boundingBox, tileBounds);
                 if (Math.Abs(depth.X) < Math.Abs(depth.Y))
                 {
-                    if (tileType == TileType.Normal)
+                    if (tileType == TileType.Normal || tileType == TileType.Platform)
                     {
                         return true;
                     }
@@ -109,6 +113,8 @@ class TinyBomb : SpriteGameObject
         return false;
     }
 }
+
+//added class to take care of the explosions 
 class Explosion : AnimatedGameObject
 {
     public Rectangle Killbox;

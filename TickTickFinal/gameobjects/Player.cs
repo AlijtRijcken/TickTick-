@@ -13,6 +13,8 @@ partial class Player : AnimatedGameObject
     protected bool exploded;
     protected bool finished;
     protected bool walkingOnIce, walkingOnHot;
+    
+    //Added variables 
     public bool spawnTiny;
     public int lives;
     protected int airtime;
@@ -39,6 +41,7 @@ partial class Player : AnimatedGameObject
 
     public override void Reset()
     {
+        //start values
         takedamage = false;
         invulnerablity = false;
         position = startPosition;
@@ -75,6 +78,7 @@ partial class Player : AnimatedGameObject
         {
             return;
         }
+        //Added shooting function 
         if (inputHelper.IsKeyDown(Keys.F))
         {
             spawnTiny = true;
@@ -110,7 +114,8 @@ partial class Player : AnimatedGameObject
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
         base.Draw(gameTime, spriteBatch);
-        spriteBatch.DrawString(spriteFont, "lives" + lives,  new Vector2(120, 10), Color.Black);
+        //added text with amount of lives information 
+        spriteBatch.DrawString(spriteFont, "lives" + lives,  new Vector2(120, 10), Color.Black);        //ADDED
         for (int i = 0; i < lives; i++)
         {
             drawlives[i].Draw(gameTime, spriteBatch);
@@ -119,7 +124,10 @@ partial class Player : AnimatedGameObject
     }
     public override void Update(GameTime gameTime)
     {
+        //added: cam position set to player position. So the camera knows where the player is. 
         GameEnvironment.cameraPosition = position;
+
+        //when the player will take damage it will have two seconds before next damage will be taken. 
         if(invulnerablity == false && takedamage == true)
         {
             lives--;
@@ -136,23 +144,27 @@ partial class Player : AnimatedGameObject
             }
 
         }
+
+        //Update  all the lives. 
         foreach (Lives live in drawlives)
         {
-
             live.Update(gameTime);
         }
         base.Update(gameTime);
+        
+        //place the lives above players head
         for (int i = 0; i < lives; i++)
         {
             drawlives[i].Position = position - new Vector2(100 - i * 50, 100);
         }
+
         if (!finished && isAlive)
         {
             if (isOnTheGround)
             {
-                if(airtime >= 33) //waneer levens eraf gaan
+                //fall damage
+                if(airtime >= 33) 
                 {
-                    // lives--;
                     takedamage = true;
                 }
 
@@ -255,9 +267,10 @@ partial class Player : AnimatedGameObject
     }
 }
 
+//ADDED CLASS for the lives!
 class Lives : SpriteGameObject
 {
-    public Lives(int layer = 0, string id = "") : base(1,"Sprites/spr_water", layer, id)
+    public Lives(int layer = 0, string id = "") : base(1,"Sprites/Lives", layer, id)
     {
     }
 }

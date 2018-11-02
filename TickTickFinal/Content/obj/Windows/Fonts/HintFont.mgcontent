@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>Z:/Documenten/GitHub/TickTick-/TickTickFinal/Content/Fonts/HintFont.spritefont</SourceFile>
-  <SourceTime>2018-11-02T13:36:55.0864937+01:00</SourceTime>
-  <DestFile>Z:/Documenten/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Fonts/HintFont.xnb</DestFile>
-  <DestTime>2018-11-02T13:37:52.0993928+01:00</DestTime>
+  <SourceFile>C:/Users/Alijt Rijcken/Documents/GitHub/TickTick-/TickTickFinal/Content/Fonts/HintFont.spritefont</SourceFile>
+  <SourceTime>2018-10-31T17:01:41.6492484+01:00</SourceTime>
+  <DestFile>C:/Users/Alijt Rijcken/Documents/GitHub/TickTick-/TickTickFinal/Content/bin/Windows/Fonts/HintFont.xnb</DestFile>
+  <DestTime>2018-11-02T15:41:53.7453783+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

@@ -183,6 +183,8 @@ partial class Level : GameObjectList
         waterdrops.Add(w);
         return new Tile();
     }
+
+    //ExtraLife method, just a normal loading one
     private Tile LoadExtralifeTile(int x, int y)
     {
         GameObjectList Extralife = Find("Extralife") as GameObjectList;

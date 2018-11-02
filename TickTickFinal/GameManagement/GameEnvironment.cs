@@ -17,10 +17,12 @@ public class GameEnvironment : Game
     protected static AssetManager assetManager;
     protected static GameSettingsManager gameSettingsManager;
 
-    public static Camera camera;                                        //CAM
+    //ADDED 
+    public static Camera camera;                                        
     public static Vector2 cameraPosition = new Vector2(0,0);
     public static Vector2 windowsize;
     public static bool followplayer = false;
+
     public GameEnvironment()
     {
         graphics = new GraphicsDeviceManager(this);
@@ -31,7 +33,8 @@ public class GameEnvironment : Game
         random = new Random();
         assetManager = new AssetManager(Content);
         gameSettingsManager = new GameSettingsManager();
-        camera = new Camera();                                          //CAM
+        //initialisation camera
+        camera = new Camera();                                          
 
     }
 
@@ -70,7 +73,8 @@ public class GameEnvironment : Game
         }
     }
 
-    public static Camera Camera                                     //CAM PROPERTY
+    //CAM PROPERTY
+    public static Camera Camera                                     
     {
         get { return Camera; }
     }

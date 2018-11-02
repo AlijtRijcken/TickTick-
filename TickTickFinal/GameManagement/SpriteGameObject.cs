@@ -6,13 +6,11 @@ public class SpriteGameObject : GameObject
     protected SpriteSheet sprite;
     protected Vector2 origin;
     public bool PerPixelCollisionDetection = true;
-
-    public bool cameraFollow;                                           //ADDED
-    public bool parallaxFollow;                                         //ADDED
+    //ADDED
     private int camera_movement;
-    Camera camera;                                                      //ADDED
+    Camera camera;                                                     
 
-    public SpriteGameObject(int camera_movement,string assetName, int layer = 0, string id = "", int sheetIndex = 0)
+    public SpriteGameObject(int camera_movement,string assetName, int layer = 0, string id = "", int sheetIndex = 0)  //CHANGED
         : base(layer, id)
     {
         if (assetName != "")
@@ -23,9 +21,9 @@ public class SpriteGameObject : GameObject
         {
             sprite = null;
         }
+        //ADDED
         this.camera_movement = camera_movement;
-        //this.cameraFollow = cameraFollow; 
-        camera = GameEnvironment.camera;                                    //ADDED
+        camera = GameEnvironment.camera;                                    
     }    
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -35,6 +33,8 @@ public class SpriteGameObject : GameObject
             return;
         }
 
+        //Parallax scrolling, with layering. case 0 is everything which is fixed on the screen, case 1 the player and the tiles, 
+        //case 2 first layer of mountains, case 3 and 4 are also mountain layers. 
         switch (camera_movement)
         {
             case 0:
@@ -62,25 +62,7 @@ public class SpriteGameObject : GameObject
                     sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position*0.2f , origin);
                     break;
                 }
-
-
         }
-        //sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
-
-        //ADDED
-
-        //if (cameraFollow == true && parallaxFollow == false)
-        //{
-        //    sprite.Draw(spriteBatch, this.GlobalPosition - camera.Position, origin);
-        //}
-        //else if (cameraFollow == false)
-        //{
-        //    sprite.Draw(spriteBatch, this.GlobalPosition, origin);
-        //}
-        //if (parallaxFollow == true)
-        //{
-        //    sprite.Draw(spriteBatch, new Vector2(this.GlobalPosition.X - camera.Position.X * 0.25f * layer, GlobalPosition.Y - camera.Position.Y), origin);
-        //}
     }
 
     public SpriteSheet Sprite

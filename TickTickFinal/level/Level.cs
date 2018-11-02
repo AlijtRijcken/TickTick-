@@ -5,10 +5,13 @@ partial class Level : GameObjectList
 {
     protected bool locked, solved;
     protected Button quitButton;
+    public SpriteFont spriteFont;
+
+    //ADDED
     TinyBomb tinyBomb;
     Explosion explosion;
     Camera camera;
-    public SpriteFont spriteFont;
+
     public Level(int levelIndex)
     {
         
@@ -17,10 +20,9 @@ partial class Level : GameObjectList
         SpriteGameObject backgroundSky = new SpriteGameObject(0,"Backgrounds/spr_sky");
         backgroundSky.Position = new Vector2(0, GameEnvironment.Screen.Y - backgroundSky.Height);
         backgrounds.Add(backgroundSky);
-        //lives = new TextGameObject("Fonts/HintFont", 0);
         spriteFont = GameEnvironment.AssetManager.Content.Load<SpriteFont>("Fonts/HintFont");
 
-        // add a few random mountains
+        // add a few random mountains, CHANGED to add Parallax scrolling -> layers. 
         for (int i = 0; i < 5; i++)
         {
             SpriteGameObject mountain = new SpriteGameObject(0, "Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 1);
@@ -61,13 +63,13 @@ partial class Level : GameObjectList
 
         Add(new GameObjectList(1, "waterdrops"));
         Add(new GameObjectList(2, "enemies"));
-        Add(new GameObjectList(3, "Extralife"));
+        Add(new GameObjectList(3, "Extralife"));        //Added, voegt healthpacks toe aan de GameObjectList
         camera = new Camera();
         
 
         LoadTiles("Content/Levels/" , levelIndex , ".txt");
-
-        TimerGameObject timer = new TimerGameObject(time, 101, "timer"); //MOVED
+        //MOVED
+        TimerGameObject timer = new TimerGameObject(time, 101, "timer"); 
         timer.Position = new Vector2(25, 30);
         Add(timer);
     }

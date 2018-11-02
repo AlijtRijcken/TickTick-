@@ -17,21 +17,27 @@ partial class Level : GameObjectList
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+
         TimerGameObject timer = Find("timer") as TimerGameObject;
         Player player = Find("player") as Player;
          
-        TileField tiles = GameWorld.Find("tiles") as TileField;;
-        Camera.maxSize = new Vector2(tiles.Columns * tiles.CellWidth, tiles.Rows * tiles.CellHeight);  //added
+        TileField tiles = GameWorld.Find("tiles") as TileField;
         
+        //Maxiamle grote v/d levels
+        Camera.maxSize = new Vector2(tiles.Columns * tiles.CellWidth, tiles.Rows * tiles.CellHeight);
+        
+        //ADDED TinyBomb, zodat alles in dezelfde laag zit en enemies kunnen worden gedood. 
+
         if (player.spawnTiny && tinyBomb == null)
         {
-
+            //spawn TinyBomb
             tinyBomb = new TinyBomb();
             tinyBomb.Position = player.Position;
             tinyBomb.direction = player.Direction;
             tinyBomb.tiles = tiles;
         }
 
+        //Update TinyBomb and explosion when colision with enemie.
         if (tinyBomb != null)
         {
             tinyBomb.Update(gameTime);
@@ -41,7 +47,6 @@ partial class Level : GameObjectList
                 if (tinyBomb.CollidesWith(p))
                 {
                     tinyBomb.explode = true;
-
                 }
             }
             if (tinyBomb.explode)
@@ -52,6 +57,7 @@ partial class Level : GameObjectList
             }
         }
 
+        //Kills the enemies. 
         if (explosion != null)
         {
             explosion.Update(gameTime);
@@ -88,6 +94,8 @@ partial class Level : GameObjectList
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
         base.Draw(gameTime, spriteBatch);
+
+        //Draw TinyBomb
         if (tinyBomb != null)
         {
             tinyBomb.Draw(gameTime,spriteBatch); 
@@ -103,9 +111,5 @@ partial class Level : GameObjectList
         base.Reset();
         VisibilityTimer hintTimer = Find("hintTimer") as VisibilityTimer;
         hintTimer.StartVisible();
-    }
-    void SpawnTinyBomb()
-    {
-
     }
 }
